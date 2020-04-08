@@ -18,6 +18,7 @@ public class TecmintApp {
   }
   input.close();
   System.out.println("list: " + lines);
+  new TecmintApp().sendPost();
   System.out.println("finish");
  }
 
