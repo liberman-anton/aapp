@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class TecmintApp {
- public static void main(String[] args){
+ public static void main(String[] args) throws IOException {
   System.out.println("start");
   BufferedReader input = new BufferedReader(new FileReader(args[0]));
   
