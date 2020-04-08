@@ -1,6 +1,10 @@
 import java.io.*;
 import java.util.*;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+
 public class TecmintApp {
  public static void main(String[] args) throws IOException {
   System.out.println("start");
