@@ -13,7 +13,7 @@ public class TecmintApp {
 	lines.add(line);
   }
   input.close();
-  System.out.println("good bye");
+  System.out.println("list: " + lines);
   System.out.println("finish");
  }
 }
