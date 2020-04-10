@@ -18,6 +18,14 @@ import java.net.http.*;
 import java.nio.charset.StandardCharsets;
 
 public class TecmintApp {
+
+
+    // one instance, reuse
+    private final HttpClient httpClient = HttpClient.newBuilder()
+            .version(HttpClient.Version.HTTP_2)
+            .build();
+
+
  public static void main(String[] args) throws Exception {
   System.out.println("start");
   BufferedReader input = new BufferedReader(new FileReader(args[0]));
