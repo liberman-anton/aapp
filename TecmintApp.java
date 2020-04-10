@@ -28,7 +28,8 @@ public class TecmintApp {
 
  public static void main(String[] args) throws Exception {
   System.out.println("start");
-  BufferedReader input = new BufferedReader(new FileReader(args[0]));
+  String file = args[0] == null ? "input.txt" : args[0];
+  BufferedReader input = new BufferedReader(new FileReader(file));
   
   List<String> lines = new LinkedList<>();
   while(true){
