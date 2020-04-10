@@ -17,7 +17,7 @@ import java.util.Map;
 import java.net.http.*;
 import java.nio.charset.StandardCharsets;
 
-public class TecmintApp {
+public class Aapp {
 
 
     // one instance, reuse
