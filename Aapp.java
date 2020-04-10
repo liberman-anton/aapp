@@ -40,7 +40,7 @@ public class Aapp {
   input.close();
   System.out.println("list: " + lines);
   
-  new TecmintApp().sendPost();
+  new Aapp().sendPost();
   
   System.out.println("finish");
  }
