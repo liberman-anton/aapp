@@ -54,6 +54,8 @@ private void sendPost(String[] args) throws Exception {
         data.put("custom", "secret");
         data.put("ts", System.currentTimeMillis());
 
+        System.out.println(args[1]);
+
         HttpRequest request = HttpRequest.newBuilder()
                 .POST(buildFormDataFromMap(data))
                 .uri(URI.create(args[1]))
@@ -81,6 +83,7 @@ private void sendPost(String[] args) throws Exception {
             builder.append("=");
             builder.append(URLEncoder.encode(entry.getValue().toString(), StandardCharsets.UTF_8));
         }
+       
         System.out.println(builder.toString());
         return HttpRequest.BodyPublishers.ofString("{\"title\": \"geodata\"}");
     }
