@@ -40,12 +40,12 @@ public class Aapp {
   input.close();
   System.out.println("list: " + lines);
   
-  new Aapp().sendPost();
+  new Aapp().sendPost(args);
   
   System.out.println("finish");
  }
 
-private void sendPost() throws Exception {
+private void sendPost(String[] args) throws Exception {
 
         // form parameters
         Map<Object, Object> data = new HashMap<>();
@@ -56,9 +56,9 @@ private void sendPost() throws Exception {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .POST(buildFormDataFromMap(data))
-                .uri(URI.create("https://httpbin.org/post"))
+                .uri(URI.create(args[1]))
                 .setHeader("User-Agent", "Java 11 HttpClient Bot") // add request header
-                .header("Content-Type", "application/x-www-form-urlencoded")
+                .header("Content-Type", "application/json")
                 .build();
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
@@ -82,7 +82,7 @@ private void sendPost() throws Exception {
             builder.append(URLEncoder.encode(entry.getValue().toString(), StandardCharsets.UTF_8));
         }
         System.out.println(builder.toString());
-        return HttpRequest.BodyPublishers.ofString(builder.toString());
+        return HttpRequest.BodyPublishers.ofString("{}"));
     }
 
 }
