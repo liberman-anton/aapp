@@ -23,7 +23,7 @@ public class Aapp {
     // one instance, reuse
     private final HttpClient httpClient = HttpClient.newBuilder()
            // .version(HttpClient.Version.HTTP_2)
-              .authenticator(Authenticator.getDefault())
+              //.authenticator(Authenticator.getDefault())
               .build();
 
 
