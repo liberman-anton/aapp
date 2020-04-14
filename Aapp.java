@@ -82,7 +82,7 @@ private void sendPost(String[] args) throws Exception {
             builder.append(URLEncoder.encode(entry.getValue().toString(), StandardCharsets.UTF_8));
         }
         System.out.println(builder.toString());
-        return HttpRequest.BodyPublishers.ofString("{}"));
+        return HttpRequest.BodyPublishers.ofString("{\"title\": \"geodata\"}"));
     }
 
 }
