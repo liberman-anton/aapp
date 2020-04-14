@@ -62,6 +62,8 @@ private void sendPost(String[] args) throws Exception {
                 .setHeader("Content-Type", "application/json")
                 .build();
 
+        System.out.println(request);
+
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
         // print status code
