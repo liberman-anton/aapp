@@ -22,7 +22,7 @@ public class Aapp {
 
     // one instance, reuse
     private final HttpClient httpClient = HttpClient.newBuilder()
-            .version(HttpClient.Version.HTTP_2)
+           // .version(HttpClient.Version.HTTP_2)
             .build();
 
 
