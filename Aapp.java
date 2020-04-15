@@ -63,7 +63,7 @@ private void sendPost(String[] args) throws Exception {
                 .setHeader("Content-Type", "application/json")
                 .build();
 
-        System.out.println(URI.create(args[1]));
+        System.out.println(URI.create(args[1]).toString());
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
