@@ -22,7 +22,7 @@ public class Aapp {
 
     // one instance, reuse
     private final HttpClient httpClient = HttpClient.newBuilder()
-           // .version(HttpClient.Version.HTTP_2)
+           .version(HttpClient.Version.HTTP_1_1)
               //.authenticator(Authenticator.getDefault())
               .build();
 
@@ -63,7 +63,7 @@ private void sendPost(String[] args) throws Exception {
                 .setHeader("Content-Type", "application/json")
                 .build();
 
-        System.out.println(request);
+        System.out.println(URI.create(args[1]));
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
