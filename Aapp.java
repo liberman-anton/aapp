@@ -60,7 +60,7 @@ private void sendPost(String[] args) throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
                 .POST(buildFormDataFromMap(data))
                 .uri(URI.create(args[1]))
-                .setHeader("Authentication", "c2l0ZTpkMGM3MTdmOGMxMmNkOTA1YjgxN2VjZDY5NTI5MzI5OQ==")
+                .setHeader("Authorization", "c2l0ZTpkMGM3MTdmOGMxMmNkOTA1YjgxN2VjZDY5NTI5MzI5OQ==")
                // setHeader("Content-Type", "application/json")
                  .build();
 
