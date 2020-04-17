@@ -79,13 +79,12 @@ private void sendPost(String[] args, List<String> lines) throws Exception {
     private static HttpRequest.BodyPublisher buildFormDataFromMap(Map<Object, Object> data , List<String> lines) {
         var builder = new StringBuilder();
         for (String line : lines) {
-           // if (builder.length() > 0) {
-          //      builder.append("&");
-           // }
+          if (line != null && line.size() > 10) {
            // builder.append(URLEncoder.encode(entry.getKey().toString(), StandardCharsets.UTF_8));
            builder.append("{ \"index\":{} }\n{\"title\": \"");
            builder.append(line);
            builder.append("\"}\n");
+          }
         } 
        
        return HttpRequest.BodyPublishers.ofString(builder.toString());
