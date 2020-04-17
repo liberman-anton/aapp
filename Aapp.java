@@ -88,7 +88,7 @@ private void sendPost(String[] args) throws Exception {
         }
        
         System.out.println(builder.toString());
-        return HttpRequest.BodyPublishers.ofString("{\"title\": \"geodata\"}");
+        return HttpRequest.BodyPublishers.ofString("{ \"index\":{} }\n{\"title\": \"geodata\"}\n{ \"index\":{} }\n{\"title\": \"geodata\"}\n");
     }
 
 }
