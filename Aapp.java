@@ -39,14 +39,14 @@ public class Aapp {
 	lines.add(line);
   }
   input.close();
-  System.out.println("list: " + lines);
+  //System.out.println("list: " + lines);
   
-  new Aapp().sendPost(args);
+  new Aapp().sendPost(args, lines);
   
   System.out.println("finish");
  }
 
-private void sendPost(String[] args) throws Exception {
+private void sendPost(String[] args, List<String> lines) throws Exception {
 
         // form parameters
         Map<Object, Object> data = new HashMap<>();
@@ -58,7 +58,7 @@ private void sendPost(String[] args) throws Exception {
         System.out.println(args[1]);
 
         HttpRequest request = HttpRequest.newBuilder()
-                .POST(buildFormDataFromMap(data))
+                .POST(buildFormDataFromMap(data, lines))
                 .uri(URI.create(args[1]))
                 .setHeader("Authorization", "Basic "+args[2])
                // setHeader("Content-Type", "application/json")
@@ -76,16 +76,17 @@ private void sendPost(String[] args) throws Exception {
 
     }
 
-    private static HttpRequest.BodyPublisher buildFormDataFromMap(Map<Object, Object> data) {
+    private static HttpRequest.BodyPublisher buildFormDataFromMap(Map<Object, Object> data , List<String> lines) {
         var builder = new StringBuilder();
-        for (Map.Entry<Object, Object> entry : data.entrySet()) {
-            if (builder.length() > 0) {
-                builder.append("&");
-            }
-            builder.append(URLEncoder.encode(entry.getKey().toString(), StandardCharsets.UTF_8));
-            builder.append("=");
-            builder.append(URLEncoder.encode(entry.getValue().toString(), StandardCharsets.UTF_8));
-        }
+        for (String line : lines) {
+           // if (builder.length() > 0) {
+          //      builder.append("&");
+           // }
+           // builder.append(URLEncoder.encode(entry.getKey().toString(), StandardCharsets.UTF_8));
+           builder.append("{ \"index\":{} }\n{\"title\": \"");
+           builder.append(line);
+           builder.append("
+        } 
        
         System.out.println(builder.toString());
         return HttpRequest.BodyPublishers.ofString("{ \"index\":{} }\n{\"title\": \"geodata\"}\n{ \"index\":{} }\n{\"title\": \"geodata\"}\n");
