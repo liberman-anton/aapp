@@ -85,7 +85,7 @@ private void sendPost(String[] args, List<String> lines) throws Exception {
            // builder.append(URLEncoder.encode(entry.getKey().toString(), StandardCharsets.UTF_8));
            builder.append("{ \"index\":{} }\n{\"title\": \"");
            builder.append(line);
-           builder.append("
+           builder.append("\"}\n");
         } 
        
         System.out.println(builder.toString());
