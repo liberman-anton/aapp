@@ -88,8 +88,9 @@ private void sendPost(String[] args, List<String> lines) throws Exception {
            builder.append("\"}\n");
         } 
        
-        System.out.println(builder.toString());
-        return HttpRequest.BodyPublishers.ofString("{ \"index\":{} }\n{\"title\": \"geodata\"}\n{ \"index\":{} }\n{\"title\": \"geodata\"}\n");
+       return HttpRequest.BodyPublishers.ofString(builder.toString());
+       // System.out.println(builder.toString());
+        //return HttpRequest.BodyPublishers.ofString("{ \"index\":{} }\n{\"title\": \"geodata\"}\n{ \"index\":{} }\n{\"title\": \"geodata\"}\n");
     }
 
 }
