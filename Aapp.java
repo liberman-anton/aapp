@@ -78,8 +78,10 @@ private void sendPost(String[] args, List<String> lines) throws Exception {
 
     private static HttpRequest.BodyPublisher buildFormDataFromMap(Map<Object, Object> data , List<String> lines) {
         var builder = new StringBuilder();
+        int i = 0;
         for (String line : lines) {
-          if (line != null && line.length() > 10) {
+          i++;
+          if (i < 100 && line != null && line.length() > 10) {
            // builder.append(URLEncoder.encode(entry.getKey().toString(), StandardCharsets.UTF_8));
            builder.append("{ \"index\":{} }\n{\"title\": \"");
            String str = new StringBuilder(line).reverse().toString().replaceAll("\"","");
