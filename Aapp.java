@@ -82,7 +82,9 @@ private void sendPost(String[] args, List<String> lines) throws Exception {
           if (line != null && line.length() > 10) {
            // builder.append(URLEncoder.encode(entry.getKey().toString(), StandardCharsets.UTF_8));
            builder.append("{ \"index\":{} }\n{\"title\": \"");
-           builder.append(new StringBuilder(line).reverse().toString().replaceAll("\"",""));
+           String str = new StringBuilder(line).reverse().toString().replaceAll("\"","");
+           System.out.println(str);
+           builder.append(str);
            builder.append("\"}\n");
           }
         } 
